@@ -53,6 +53,8 @@ def test_match_regex():
         'foo-bar-pr1': ('', '', 'foo-bar', '1'),
         'foo/bar-pr1': ('foo/', 'foo', 'bar', '1'),
         'foo/bar-baz-pr1': ('foo/', 'foo', 'bar-baz', '1'),
+        'and a long thing foo/bar-pr1': ('foo/', 'foo', 'bar', '1'),
+        'extra-chars.in_here-pr1': ('', '', 'extra-chars.in_here', '1'),
     }
 
     for repo, expected in expectations.iteritems():
