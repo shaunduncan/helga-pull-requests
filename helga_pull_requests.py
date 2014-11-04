@@ -2,7 +2,7 @@ from helga import settings
 from helga.plugins import match
 
 
-@match(r'(([\w]+)/)?([\w]+)-pr([\d]+)')
+@match(r'((.+?)/)?(.+?)-pr([\d]+)')
 def pull_requests(client, channel, nick, message, matches):
     prs = []
     for _, org, repo, pr in matches:

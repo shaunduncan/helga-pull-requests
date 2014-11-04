@@ -1,3 +1,5 @@
+import re
+
 from mock import patch
 
 from helga_pull_requests import pull_requests
@@ -42,3 +44,16 @@ def test_uses_default_account(settings):
     assert resp == ('me might be talking about pull request: '
                     'https://github.com/foo/bar/pull/10, '
                     'https://github.com/baz/qux/pull/42')
+
+
+def test_match_regex():
+    plugin_cls = pull_requests._plugins[0]
+    expectations = {
+        'foo-pr1': ('', '', 'foo', '1'),
+        'foo-bar-pr1': ('', '', 'foo-bar', '1'),
+        'foo/bar-pr1': ('foo/', 'foo', 'bar', '1'),
+        'foo/bar-baz-pr1': ('foo/', 'foo', 'bar-baz', '1'),
+    }
+
+    for repo, expected in expectations.iteritems():
+        assert re.findall(plugin_cls.pattern, repo)[0] == expected
