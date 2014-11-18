@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='helga-pull-requests',
-    version='0.0.3',
+    version='0.0.4',
     description='A helga plugin to quickly link to github pull requests.',
     classifiers=[
         'Development Status :: 4 - Beta',
