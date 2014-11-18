@@ -8,6 +8,7 @@ Settings
 --------
 
 **PULL_REQUESTS_DEFAULT_ACCOUNT** A default account to use for empty matches of <repo_name>-pr<number>
+**PULL_REQUESTS_GITHUB_HOST** A url to use for github. Defaults to `https://github.com`.
 
 License
 -------
