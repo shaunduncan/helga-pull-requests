@@ -2,7 +2,7 @@ helga-pull-requests
 ===================
 
 A helga plugin to quickly link to github pull requests. This will match either the pattern
-<repo_name>-pr<number> (when PULL_REQUESTS_DEFAULT_ACCOUNT is set) or <account>/<repo_name>-pr<number>.
+<repo_name>-pr<number> (when PULL_REQUESTS_DEFAULT_ACCOUNT is set) or <account>/<repo_name>-pr<number> or <account>/<repo_name>/pull/<number>.
 
 Settings
 --------
