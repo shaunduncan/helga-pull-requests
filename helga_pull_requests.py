@@ -2,6 +2,8 @@ from helga import settings
 from helga.plugins import match
 
 
+@match(r'\s(([\w\-\.]+?)/)?([\w\-\.]+?)/pull/([\d]+)')
+@match(r'^(([\w\-\.]+?)/)?([\w\-\.]+?)/pull/([\d]+)')
 @match(r'(([\w\-\.]+?)/)?([\w\-\.]+?)-pr([\d]+)')
 def pull_requests(client, channel, nick, message, matches):
     prs = []
