@@ -75,3 +75,21 @@ def test_match_regex():
 
     for repo, expected in expectations.iteritems():
         assert re.findall(plugin_cls.pattern, repo)[0] == expected
+
+
+def test_extended_regex():
+    plugin_cls = pull_requests._plugins[1]
+    msg = 'shaunduncan/helga-pull-requests/pull/2'
+    res = ('shaunduncan/', 'shaunduncan', 'helga-pull-requests', '2')
+    assert re.findall(plugin_cls.pattern, msg)[0] == res
+
+    msg = 'https://github.com/shaunduncan/helga-pull-requests/pull/2'
+    assert re.findall(plugin_cls.pattern, msg) == []
+
+    plugin_cls = pull_requests._plugins[2]
+    msg = 'this is a test shaunduncan/helga-pull-requests/pull/2'
+    res = ('shaunduncan/', 'shaunduncan', 'helga-pull-requests', '2')
+    assert re.findall(plugin_cls.pattern, msg)[0] == res
+
+    msg = 'this is a test https://github.com/shaunduncan/helga-pull-requests/pull/2'
+    assert re.findall(plugin_cls.pattern, msg) == []
